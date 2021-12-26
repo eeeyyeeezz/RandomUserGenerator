@@ -3,7 +3,7 @@ import UIKit
 // https://randomuser.me/api/
 
 class ViewController: UIViewController {
-
+    
     let buttonRandom: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .black
@@ -16,15 +16,30 @@ class ViewController: UIViewController {
         return button
     }()
 
+    let imageUser: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         let user = UserInfo()
         
-        self.view.backgroundColor = .white
         setConstraints()
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            print(user.name)
+            print(user.age)
+            print(user.email)
+            print(user.address)
+            print(user.phoneNumber)
+            print(user.image)
+        }
     }
+    
+    
 }
 
 extension ViewController {
@@ -38,6 +53,20 @@ extension ViewController {
             buttonRandom.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+    }
+    
+    func        setImage(_ user: UserInfo){
+        let url: URL? = URL(string: user.image!)
+        DispatchQueue.global().async{
+            guard let data = try? Data(contentsOf: url!) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.imageUser.image = UIImage(data: data)
+            }
+        }
+
+
     }
     
     @objc func buttonTapped(){

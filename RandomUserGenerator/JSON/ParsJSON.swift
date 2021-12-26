@@ -1,19 +1,8 @@
 import Foundation
 
-class UserInfo {
-    var name: String = ""
-    var email: String = ""
-    var age: Int = 0
-    var address: String = ""
-    var phoneNumber: String = ""
-    var image: String = ""
+extension UserInfo {
     
-    init () { getData() }
-    
-}
-
-extension UserInfo{
-    private func        getData() {
+    public func        getData() {
         let decoder = JSONDecoder()
         guard let url = URL(string: "https://randomuser.me/api/") else { return }
         
@@ -38,11 +27,11 @@ extension UserInfo{
         self.phoneNumber = user.results.first!.phone
         self.image = user.results.first!.picture.large
         
-        print(self.name)
-        print(self.email)
-        print(self.age)
-        print(self.address)
-        print(self.phoneNumber)
-        print(self.image)
+        print(self.name!)
+        print(self.email!)
+        print(self.age!)
+        print(self.address!)
+        print(self.phoneNumber!)
+        print(self.image!)
     }
 }
