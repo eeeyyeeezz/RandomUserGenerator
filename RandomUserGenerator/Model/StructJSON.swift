@@ -1,13 +1,13 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Welcome: Decodable {
     let results: [Result]
 }
 
 
 // MARK: - Result
-struct Result: Codable {
+struct Result: Decodable {
     let name: Name
     let location: Location
     let email: String
@@ -17,32 +17,32 @@ struct Result: Codable {
 }
 
 // MARK: - Dob
-struct Dob: Codable {
+struct Dob: Decodable {
     let date: String
     let age: Int
 }
 
 
 // MARK: - Location
-struct Location: Codable {
+struct Location: Decodable {
     let street: Street
     let city, state, country: String
 }
 
 
 // MARK: - Street
-struct Street: Codable {
+struct Street: Decodable {
     let number: Int
     let name: String
 }
 
 
 // MARK: - Name
-struct Name: Codable {
+struct Name: Decodable {
     let title, first, last: String
 }
 
 // MARK: - Picture
-struct Picture: Codable {
+struct Picture: Decodable {
     let large, medium, thumbnail: String
 }

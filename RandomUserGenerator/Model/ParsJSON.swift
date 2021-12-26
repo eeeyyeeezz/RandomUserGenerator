@@ -2,7 +2,7 @@ import Foundation
 
 extension UserInfo {
     
-    public func        getData() {
+    func        getData() {
         let decoder = JSONDecoder()
         guard let url = URL(string: "https://randomuser.me/api/") else { return }
         
@@ -19,7 +19,7 @@ extension UserInfo {
         session.resume()
     }
     
-    private func        setData(_ user: Welcome){
+    func        setData(_ user: Welcome){
         self.name = user.results.first!.name.title + " " + user.results.first!.name.first + " " + user.results.first!.name.last
         self.email = user.results.first!.email
         self.age = user.results.first!.dob.age

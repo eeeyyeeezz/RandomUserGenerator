@@ -62,9 +62,9 @@
 		2664951227774CED0080BF70 /* RandomUserGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				266495272777536C0080BF70 /* JSON */,
+				266495272777536C0080BF70 /* Model */,
 				2664952A277754BC0080BF70 /* Delegates */,
-				2664952B277754FA0080BF70 /* Views */,
+				2664952B277754FA0080BF70 /* Controller */,
 				2664951927774CED0080BF70 /* Main.storyboard */,
 				2664951C27774CEE0080BF70 /* Assets.xcassets */,
 				2664951E27774CEE0080BF70 /* LaunchScreen.storyboard */,
@@ -73,14 +73,14 @@
 			path = RandomUserGenerator;
 			sourceTree = "<group>";
 		};
-		266495272777536C0080BF70 /* JSON */ = {
+		266495272777536C0080BF70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				26649528277753780080BF70 /* StructJSON.swift */,
 				26036B3227787B3C00C3A820 /* ParsJSON.swift */,
 				26036B342778B62E00C3A820 /* UserInfo.swift */,
 			);
-			path = JSON;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2664952A277754BC0080BF70 /* Delegates */ = {
@@ -92,12 +92,12 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
-		2664952B277754FA0080BF70 /* Views */ = {
+		2664952B277754FA0080BF70 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				2664951727774CED0080BF70 /* ViewController.swift */,
 			);
-			name = Views;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

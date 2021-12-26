@@ -28,15 +28,14 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .white
         let user = UserInfo()
         
+        
+        print(user.name)
+        print(user.age)
+        print(user.email)
+        print(user.address)
+        print(user.phoneNumber)
+        print(user.image)
         setConstraints()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            print(user.name)
-            print(user.age)
-            print(user.email)
-            print(user.address)
-            print(user.phoneNumber)
-            print(user.image)
-        }
     }
     
     
