@@ -18,9 +18,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user = UserInfo()
         
         self.view.backgroundColor = .white
         setConstraints()
+        
     }
 }
 
