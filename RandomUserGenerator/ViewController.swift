@@ -2,8 +2,21 @@ import UIKit
 
 // https://randomuser.me/api/
 
+struct Interface{
+	var name: String?
+	var email: String?
+	var age: Int?
+	var address: String?
+	var phoneNumber: String?
+	var image: String?
+}
+
 class ViewController: UIViewController {
     
+	private var userObject = User()
+	
+	var interface = Interface()
+	
     let buttonRandom: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .black
@@ -26,23 +39,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        let user = UserInfo()
-        
-        
-        print(user.name)
-        print(user.age)
-        print(user.email)
-        print(user.address)
-        print(user.phoneNumber)
-        print(user.image)
-        setConstraints()
+		
+		self.userObject.getData()
+		userObject.completionHandler = { user in
+			self.interface.name = user.name
+			print(self.interface.name)
+			
+		}
+		
+		setConstraints()
     }
     
     
 }
 
 extension ViewController {
-    
+	    
     func setConstraints(){
         self.view.addSubview(self.buttonRandom)
         NSLayoutConstraint.activate([
@@ -53,23 +65,9 @@ extension ViewController {
         ])
         
     }
-    
-    func        setImage(_ user: UserInfo){
-        let url: URL? = URL(string: user.image!)
-        DispatchQueue.global().async{
-            guard let data = try? Data(contentsOf: url!) else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.imageUser.image = UIImage(data: data)
-            }
-        }
 
-
-    }
-    
-    @objc func buttonTapped(){
-        print("Lol")
-    }
-    
+	@objc func buttonTapped(){
+		print("Lol")
+	}
+	
 }
