@@ -32,35 +32,35 @@ class ViewController: UIViewController {
 	
 	let nameLabel: UILabel = {
 		let label = UILabel()
-		label.font = label.font.withSize(23)
+		label.font = label.font.withSize(25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	let emailLabel: UILabel = {
 		let label = UILabel()
-		label.font = label.font.withSize(23)
+		label.font = label.font.withSize(25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	let ageLabel: UILabel = {
 		let label = UILabel()
-		label.font = label.font.withSize(23)
+		label.font = label.font.withSize(25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	let addressLabel: UILabel = {
 		let label = UILabel()
-		label.font = label.font.withSize(23)
+		label.font = label.font.withSize(25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	let phoneNumberLabel: UILabel = {
 		let label = UILabel()
-		label.font = label.font.withSize(23)
+		label.font = label.font.withSize(25)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
@@ -80,8 +80,12 @@ class ViewController: UIViewController {
 				self.interface.phoneNumber = user.phoneNumber
 				self.interface.image = user.image
 			}
+			DispatchQueue.main.async {
+				self.setInterface()
+				self.setConstraints()
+			}
 		}
-		setConstraints()
+		
     }
     
     

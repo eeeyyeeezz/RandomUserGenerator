@@ -8,8 +8,8 @@ struct Result: Decodable {
     let name: Name
     let location: Location
     let email: String
-    let dob, registered: Dob
-    let phone, cell: String
+    let dob: Dob
+    let phone: String
     let picture: Picture
 }
 

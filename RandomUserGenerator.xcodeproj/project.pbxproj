@@ -79,8 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				26649528277753780080BF70 /* StructJSON.swift */,
-				26036B3227787B3C00C3A820 /* ParsJSON.swift */,
 				26036B342778B62E00C3A820 /* UserInfo.swift */,
+				26036B3227787B3C00C3A820 /* ParsJSON.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
