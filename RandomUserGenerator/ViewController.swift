@@ -1,15 +1,7 @@
-import UIKit
-
 // https://randomuser.me/api/
 
-struct Interface{
-	var name: String?
-	var email: String?
-	var age: Int?
-	var address: String?
-	var phoneNumber: String?
-	var image: String?
-}
+import UIKit
+
 
 class ViewController: UIViewController {
     
@@ -31,25 +23,64 @@ class ViewController: UIViewController {
 
     let imageUser: UIImageView = {
         let image = UIImageView()
+		
+		image.layer.cornerRadius = 75
+		image.layer.masksToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
+	
+	let nameLabel: UILabel = {
+		let label = UILabel()
+		label.font = label.font.withSize(23)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	let emailLabel: UILabel = {
+		let label = UILabel()
+		label.font = label.font.withSize(23)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	let ageLabel: UILabel = {
+		let label = UILabel()
+		label.font = label.font.withSize(23)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	let addressLabel: UILabel = {
+		let label = UILabel()
+		label.font = label.font.withSize(23)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
+	let phoneNumberLabel: UILabel = {
+		let label = UILabel()
+		label.font = label.font.withSize(23)
+		label.translatesAutoresizingMaskIntoConstraints = false
+		return label
+	}()
+	
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .lightGray
 		
 		self.userObject.getData()
 		userObject.completionHandler = { user in
-			self.interface.name = user.name
-			self.interface.address = user.address
-			self.interface.email = user.email
-			self.interface.age = user.age
-			self.interface.phoneNumber = user.phoneNumber
-			self.interface.image = user.image
+			DispatchQueue.main.async {
+				self.interface.name = user.name
+				self.interface.address = user.address
+				self.interface.email = user.email
+				self.interface.age = user.age
+				self.interface.phoneNumber = user.phoneNumber
+				self.interface.image = user.image
+			}
 		}
-		setInterface()
 		setConstraints()
     }
     
@@ -59,7 +90,20 @@ class ViewController: UIViewController {
 extension ViewController {
 	    
 	func setInterface(){
-		self.imageUser.image = UIImage()
+		let url = URL(string: self.interface.image!)
+		if let data = try? Data(contentsOf: url!) {
+			if let image = UIImage(data:data){
+				DispatchQueue.main.async {
+					self.imageUser.image = image
+				}
+			}
+		}
+		
+		self.nameLabel.text = self.interface.name
+		self.emailLabel.text = self.interface.email
+		self.ageLabel.text = "Age: " + String(self.interface.age!)
+		self.addressLabel.text = self.interface.address
+		self.phoneNumberLabel.text = self.interface.phoneNumber
 	}
 	
     func setConstraints(){
@@ -73,15 +117,43 @@ extension ViewController {
 		
 		self.view.addSubview(imageUser)
 		NSLayoutConstraint.activate([
-			imageUser.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
-			imageUser.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-//			imageUser.widthAnchor.constraint(equalToConstant: 75),
-//			imageUser.heightAnchor.constraint(equalToConstant: 40)
-		
+			imageUser.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+			imageUser.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+			imageUser.widthAnchor.constraint(equalToConstant: 300),
+			imageUser.heightAnchor.constraint(equalToConstant: 250)
 		])
+		
+		self.view.addSubview(nameLabel)
+		nameLabel.topAnchor.constraint(equalTo: self.imageUser.bottomAnchor, constant: 20).isActive = true
+		setLabelConstraints(nameLabel)
+		
+		self.view.addSubview(emailLabel)
+		emailLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 20).isActive = true
+		setLabelConstraints(emailLabel)
+		
+		self.view.addSubview(ageLabel)
+		ageLabel.topAnchor.constraint(equalTo: self.emailLabel.bottomAnchor, constant: 20).isActive = true
+		setLabelConstraints(ageLabel)
+
+		self.view.addSubview(addressLabel)
+		addressLabel.topAnchor.constraint(equalTo: self.ageLabel.bottomAnchor, constant: 20).isActive = true
+		setLabelConstraints(addressLabel)
+
+		self.view.addSubview(phoneNumberLabel)
+		phoneNumberLabel.topAnchor.constraint(equalTo: self.addressLabel.bottomAnchor, constant: 20).isActive = true
+		setLabelConstraints(phoneNumberLabel)
         
     }
 
+	func			setLabelConstraints<Label: UILabel> (_ someLabel: Label){
+		NSLayoutConstraint.activate([
+			someLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+			someLabel.widthAnchor.constraint(equalToConstant: 350),
+			someLabel.heightAnchor.constraint(equalToConstant: 50)
+		])
+	}
+	
+	
 	@objc func buttonTapped(){
 		self.userObject.getData()
 		userObject.completionHandler = { user in
@@ -98,6 +170,7 @@ extension ViewController {
 //		print(self.interface.age)
 //		print(self.interface.phoneNumber)
 //		print(self.interface.image)
+		setInterface()
 	}
 	
 }
