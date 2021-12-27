@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
 	private var userObject = User()
 	
-	var interface = Interface()
+	lazy var interface = Interface()
 	
     let buttonRandom: UIButton = {
         let button = UIButton(type: .system)
@@ -43,10 +43,13 @@ class ViewController: UIViewController {
 		self.userObject.getData()
 		userObject.completionHandler = { user in
 			self.interface.name = user.name
-			print(self.interface.name)
-			
+			self.interface.address = user.address
+			self.interface.email = user.email
+			self.interface.age = user.age
+			self.interface.phoneNumber = user.phoneNumber
+			self.interface.image = user.image
 		}
-		
+		setInterface()
 		setConstraints()
     }
     
@@ -55,6 +58,10 @@ class ViewController: UIViewController {
 
 extension ViewController {
 	    
+	func setInterface(){
+		self.imageUser.image = UIImage()
+	}
+	
     func setConstraints(){
         self.view.addSubview(self.buttonRandom)
         NSLayoutConstraint.activate([
@@ -63,11 +70,34 @@ extension ViewController {
             buttonRandom.widthAnchor.constraint(equalToConstant: 300),
             buttonRandom.heightAnchor.constraint(equalToConstant: 50)
         ])
+		
+		self.view.addSubview(imageUser)
+		NSLayoutConstraint.activate([
+			imageUser.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50),
+			imageUser.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+//			imageUser.widthAnchor.constraint(equalToConstant: 75),
+//			imageUser.heightAnchor.constraint(equalToConstant: 40)
+		
+		])
         
     }
 
 	@objc func buttonTapped(){
-		print("Lol")
+		self.userObject.getData()
+		userObject.completionHandler = { user in
+			self.interface.name = user.name
+			self.interface.address = user.address
+			self.interface.email = user.email
+			self.interface.age = user.age
+			self.interface.phoneNumber = user.phoneNumber
+			self.interface.image = user.image
+		}
+//		print(self.interface.name)
+//		print(self.interface.address)
+//		print(self.interface.email)
+//		print(self.interface.age)
+//		print(self.interface.phoneNumber)
+//		print(self.interface.image)
 	}
 	
 }
