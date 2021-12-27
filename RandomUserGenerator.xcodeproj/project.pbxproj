@@ -17,6 +17,7 @@
 		2664952027774CEE0080BF70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2664951E27774CEE0080BF70 /* LaunchScreen.storyboard */; };
 		26649529277753780080BF70 /* StructJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26649528277753780080BF70 /* StructJSON.swift */; };
 		26CDF72F2779FC9D0012A115 /* InterfaceStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDF72E2779FC9D0012A115 /* InterfaceStruct.swift */; };
+		26CDF731277A08440012A115 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDF730277A08440012A115 /* Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2664952127774CEE0080BF70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26649528277753780080BF70 /* StructJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructJSON.swift; sourceTree = "<group>"; };
 		26CDF72E2779FC9D0012A115 /* InterfaceStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStruct.swift; sourceTree = "<group>"; };
+		26CDF730277A08440012A115 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				2664951727774CED0080BF70 /* ViewController.swift */,
 				26CDF72E2779FC9D0012A115 /* InterfaceStruct.swift */,
+				26CDF730277A08440012A115 /* Constraints.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				26036B3327787B3C00C3A820 /* ParsJSON.swift in Sources */,
 				26649529277753780080BF70 /* StructJSON.swift in Sources */,
 				2664951427774CED0080BF70 /* AppDelegate.swift in Sources */,
+				26CDF731277A08440012A115 /* Constraints.swift in Sources */,
 				26036B352778B62E00C3A820 /* UserInfo.swift in Sources */,
 				26CDF72F2779FC9D0012A115 /* InterfaceStruct.swift in Sources */,
 				2664951627774CED0080BF70 /* SceneDelegate.swift in Sources */,
