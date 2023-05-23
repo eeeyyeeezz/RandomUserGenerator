@@ -2,7 +2,6 @@ import Foundation
 
 class User{
 	var completionHandler: ((UserInfoStruct) -> Void)?
-	
 }
 
 struct UserInfoStruct {
